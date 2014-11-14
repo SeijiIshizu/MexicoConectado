@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="images/favicon.ico'" type="image/png">
+        <title>México Conectado</title>
+        <link href="css/style.default.css" rel="stylesheet">
+        <link href="css/style.inverse.css" rel="stylesheet">
+      	<style>
+        	 .btn-default.active  {
+        			background: #428bca;
+        			border-color: #428bca;
+        			color: white;
+    			}
+
+          .big{
+            font-size:15px;
+          }
+
+          hr {
+            margin-top: 3px;
+            margin-bottom: 10px;
+          }
+
+          .people-item {
+            padding: 6px;
+          }
+
+          .modal-header {
+            background-color: #1d2939;
+            color: white;
+          }
+
+          @media screen and (max-width: 600px) {
+            .hh{
+              display:none;
+            }
+          }        
+      	</style>
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+        </div>
+
+        <section>
+
+            <div class="leftpanel">
+
+                <div class="logopanel" style="padding-top: 4px">
+                    <form method="post" id="geocoding_form" >
+      			        	<input type="text" class="form-control input input-sm" placeholder="Buscar Ubicación (Requiere Conexion)" id="address_search" name="address_search" style="background: rgba(236, 236, 236, 1); color: #1D2939; padding-bottom: 8px; font-size: 11px">
+      			      	</form>
+                </div><!-- logopanel -->
+
+                <div class="leftpanelinner">
+                    <h5 class="sidebartitle" style="padding-left: 12px;">AJUSTES</h5>
+                    <ul class="nav nav-pills nav-stacked nav-bracket">
+        				        <li><a><span> Mostrar rango de <span id="metros">1</span> Km 
+        				        	<div id="slider-primary" class="slider-primary mb20" ></div>  </span></a>
+                        </li>
+        				        <li><a><span>  Reputación 
+        				        	<div class="btn-group">
+        				            	<button type="button" id="btnTodo" class="btn btn-default active">Todo</button>
+        				                <button type="button" id="btnAlta" class="btn btn-default">Alta</button>
+        				                <button type="button" id="btnMedia" class="btn btn-default">Media</button>
+        				            </div>
+        				        </span></a></li>
+        				    </ul>
+                </div><!-- leftpanelinner -->
+            </div><!-- leftpanel -->
+
+      			<div class="mainpanel">
+
+      				<div class="headerbar">
+      					<a class="menutoggle"><i class="fa fa-bars"></i></a>
+      			  	<div class=" lead" style="padding-top: 14px; margin-left: 10px; margin-bottom: 0px; color:white; text-align: center" >
+      		       [<i class="fa fa-wifi"></i>] MÉXICO CONECTADO
+      		      </div>
+      				</div><!-- headerbar -->
+
+      				
+
+      				<div class="contentpanel">	  
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div id="gmap-marker" class="contenedor" style="height: 500px"></div>
+                  </div><!-- panel-body -->
+                </div><!-- panel -->
+      				</div>
+      			</div><!-- mainpanel -->
+    </section>
+
+
+    <div class="modal fade  bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="text-align: center">
+            <div class="modal-header" >
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button" style="color: white">&times;</button>
+                <h1 class="lead" style="color:white"> Calle 10 de Abril, Colonia Centro.</h1>
+                
+                <div class="row">
+                  <div class="col-sm-6">
+                    Distancia: 15m.
+                  </div>
+                  <div class="col-sm-6">
+                    Reputación:  Buena.  <i class="fa fa-wifi" style="color: green"></i>
+                  </div>
+
+                </div>
+                
+            </div>
+            
+            <div class="panel-body" >
+              <h4>Lugares de Interés Cercanos</h4>
+              <div class="people-item" style="text-align: left">
+                  <div class="media">
+                    <a  class="pull-left">
+                      <img alt="" src="images/img1.jpg" class="thumbnail media-object" style="margin-bottom: 0px">
+                    </a>
+                    <div class="media-body">
+                      <h4 class="person-name">Parque Ecológico San Miguel Acapatzingo</h4>
+                      <div class="text-muted"><i class="fa fa-location-arrow"></i> Bajada de Chapultepec #27</div>
+                      <div class="text-muted"><i class="fa fa-map-marker"></i> A 10 m.</a></div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="people-item" style="text-align: left">
+                  <div class="media">
+                    <a  class="pull-left">
+                      <img alt="" src="images/img2.jpg" class="thumbnail media-object" style="margin-bottom: 0px">
+                    </a>
+                    <div class="media-body">
+                      <h4 class="person-name">Museo de las Ciencias de Morelos</h4>
+                      <div class="text-muted"><i class="fa fa-location-arrow"></i> Bajada de Chapultepec #27</div>
+                      <div class="text-muted"><i class="fa fa-map-marker"></i> A 10 m.</a></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+              <h4>¿Qué tal fue tu conexión?</h4>
+              <div class="btn-group" style="width: 100%">
+                <button type="button"  style="width: 50%" class="btn btn-default"><i class="fa fa-thumbs-o-up"></i>  Buena Conexión </button>
+                <button type="button" style="width: 50%" class="btn btn-default"><i class="fa fa-thumbs-o-down"></i>  Mala Conexión</button>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+      <script src="js/jquery-1.10.2.min.js"></script>
+      <script src="js/jquery-migrate-1.2.1.min.js"></script>
+      <script src="js/jquery-ui-1.10.3.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/modernizr.min.js"></script>
+      <script src="js/jquery.sparkline.min.js"></script>
+      <script src="js/toggles.min.js"></script>
+      <script src="js/retina.min.js"></script>
+      <script src="js/jquery.cookies.js"></script>
+      <script src="js/googlemapsapi.js"></script>
+      <script src="js/gmaps.js"></script>
+      <script src="js/custom.js"></script>
+      <script src="js/wifi.js"></script>
+
+
+
+
+      <script>
+
+
+        //crea el mapa
+        var map = new GMaps({
+          div: '#gmap-marker',
+          lat: 18.9242095,
+          lng: -99.22156590000003,
+          width: '100%',
+          
+          zoom: 15,
+          zoomControl: true,
+          zoomControlOpt: {
+              style: 'SMALL',
+              position: 'TOP_LEFT'
+          },
+          panControl: false
+          //streetViewControl: false
+        });
+
+        map.addMarker({
+          lat: 18.9242095,
+          lng: -99.22156590000003,
+          title: 'Casa',
+          icon: 'images/aqui.png'
+          //draggable: true
+        });
+
+        var lat;
+        var lng;
+        var radio;
+        var cantRes;
+        var rep;
+          
+
+        jQuery(document).ready(function(){
+
+            lat=map.markers[0].position.k;
+            lng=map.markers[0].position.B;
+            radio=1;
+            cantRes=50;
+            rep='abc';
+            obtenerHostpost(lat, lng, radio, rep, cantRes);
+
+
+            geolocalizar();
+
+            map.addControl({
+            position: 'top_right',
+            content: '<i class="fa fa-location-arrow"></i>',
+            style: {
+              margin: '5px',
+              padding: '1px 6px',
+              border: 'solid 1px #717B87',
+              background: '#fff'
+            },
+            events: {
+              click: function(){
+                GMaps.geolocate({
+                  success: function(position){
+                    map.setCenter(position.coords.latitude, position.coords.longitude);
+                  },
+                  error: function(error){
+                    alert('Geolocation failed: ' + error.message);
+                  },
+                  not_supported: function(){
+                    alert("Your browser does not support geolocation");
+                  }
+                });
+              }
+            }
+          });
+
+
+           $('#geocoding_form').submit(function(e){
+            e.preventDefault();
+            GMaps.geocode({
+              address: $('#address_search').val().trim(),
+              callback: function(results, status){
+                if(status=='OK'){
+                  if(map.markers[0]){
+                    map.removeMarkers();
+                  }
+                  var latlng = results[0].geometry.location;
+                  map.setCenter(latlng.lat(), latlng.lng());
+                  map.addMarker({
+                    lat: latlng.lat(),
+                    lng: latlng.lng(),
+                    title: 'Casa',
+                    icon: 'images/aqui.png'
+                  });
+                  lat=map.markers[0].position.k;
+                  lng=map.markers[0].position.B;
+                  radio=1;
+                  cantRes=50;
+                  rep='abc';
+                  obtenerHostpost(lat, lng, radio, rep, cantRes);
+                }
+              }
+            });
+          });
+
+        });
+
+          function geolocalizar(){
+          GMaps.geolocate({
+            success: function(position){
+              if(map.markers[0]){
+                map.removeMarkers();
+              }
+              map.setCenter(position.coords.latitude, position.coords.longitude);
+              map.addMarker({
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+                //draggable: true,
+                title: 'Casa',
+                icon: 'images/aqui.png' 
+              });
+              obtenerHostpost(lat, lng, radio, rep, cantRes);
+
+            },
+            error: function(error){
+              //alert('Error al buscar tu ubicación: ' + error.message);
+            },
+            not_supported: function(){
+              alert("Tu navegador no permite geolocalización");
+            }
+          });
+        }
+
+      </script>
+
+
+      <script>
+
+      document.getElementById('btnTodo').addEventListener('click',btnTodo );
+      document.getElementById('btnAlta').addEventListener('click',btnAlta );
+      document.getElementById('btnMedia').addEventListener('click',btnMedia );
+
+
+       jQuery('#slider-primary').slider({
+            range: "min",   
+            max: 5,
+            min: 1,
+            value: 1
+       });
+
+       $( "#slider-primary" ).slider({
+        change: function( event, ui ) {
+        	document.getElementById('metros').innerHTML= $("#slider-primary").slider("value");
+          radio = $("#slider-primary").slider("value");
+          actualiza();
+        }
+
+      });
+
+
+       function btnTodo(){
+       	$("#btnTodo").addClass("active");
+       	$("#btnAlta").removeClass("active");
+       	$("#btnMedia").removeClass("active");
+        rep = "abc";
+        actualiza();
+
+       }
+
+       function btnAlta(){
+       	$("#btnAlta").addClass("active");
+       	$("#btnTodo").removeClass("active");
+       	$("#btnMedia").removeClass("active");
+        rep = "a";
+        actualiza();
+       }
+
+       function btnMedia(){
+       	$("#btnMedia").addClass("active");
+       	$("#btnAlta").addClass("active");
+       	$("#btnTodo").removeClass("active");
+        rep = "ab";
+        
+       }
+
+       function actualiza(){
+        guardaubicacion();
+        map.removeMarkers();
+        insertaubicacion();
+        obtenerHostpost(lat, lng, radio, rep, cantRes);
+       }
+
+       function guardaubicacion(){
+        lat=map.markers[0].position.k;
+        lng=map.markers[0].position.B;;
+       }
+
+       function insertaubicacion(){
+        map.addMarker({
+                lat: lat,
+                lng: lng,
+                title: 'Casa',
+                icon: 'images/aqui.png"' 
+        });
+       }
+          
+      </script>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+
+
+.stretchtofit {
+  width:100%;
+}
+
+#buscador::-webkit-input-placeholder { color:#fff; }
+#buscador::-moz-placeholder { color:#fff; }
+#buscador:-moz-placeholder { color:#fff; }
+#buscador:-ms-input-placeholder { color:#fff; }
+
+.centrar {
+	text-align: center; 	
+}
+
+.gris{
+	/*background-color: #efefef; */
+	background: url("../images/fondo.JPG") no-repeat fixed center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.clogo{
+	height:25px;
+}
+
+.clogin{
+	max-width: 100%;
+}
+
+.rightalign{
+	text-align:right;
+}
+
+
+
+.pageheader h2{
+	color: #F11718;
+}
+
+.pageheader .glyphicon,
+.pageheader .fa {
+    border: 2px solid #F11718;
+	
+}
+
+#buscador{
+	color: #ccc; 
+}
+
+.panel-title{
+	color: #F11718;
+}
+
+.panel-btns a{
+	color: #F11718;
+}
+
+.nav-bracket > li > a {
+  color: #F11718;
+}
+
+.btn-default {
+   color: #fff;
+}
+
+.badge-success{
+	background-color: #F11718;
+}
+
+
+.pagination {
+	margin: 0px 0px 0px 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	display: inline;
+
+}
